@@ -10,15 +10,15 @@ todos = [
 
 
 #los endpoints
-@app.route('/todos', methods=['GET'])
+@app.route('/todos', methods=['GET'])# estoy especificando mi endpoint para usarlo con flask
 def hello_world():
-    return jsonify(todos)
+    return jsonify(todos)# me esta consultando y retornando en formato json mi lista de objetos todos
 
-@app.route('/todos', methods=['POST'])
+@app.route('/todos', methods=['POST']) #TAREA nueva del cliente en mi lista de objetos todos
 def add_new_todo():
-    request_todo = json.loads(request.data)
+    request_todo = json.loads(request.data)#ingresa tarea nueva del cliente en mi lista de objetos request data tiene mi info en formato JSON
     todos.append(request_todo)
-    return jsonify(todos), 200
+    return jsonify(todos), 200 #me retorna mi informacion en formato JSON y nos comunica un codigo 200
     #print("peticion recibida body", request_body)
     
 
@@ -35,3 +35,4 @@ def delete_todo(position):
 #arranque de la app
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=3245, debug=True)
+  #este es el puerto donde me va a mostrar mis endpoints
